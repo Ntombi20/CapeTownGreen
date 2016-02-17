@@ -8,11 +8,11 @@ function keyCodeName(num) {
     }
 
     else if (num === 38) {
-    	return "up";
+    	return "forward";
     }
 
     else if (num === 40) {
-    	return "down";
+    	return "back";
     }
 
     else if (num === 52||32||64) {
@@ -24,7 +24,9 @@ var body = document.querySelector("body");
 
 body.onkeydown = function(e){
     //e.keyCode - will capture the key codes
-    e.keyCode('click', function() {
-        console.log(displayMessage(e.keyCodeName));
-    });
+   // e.keyCode('click', function() {
+    var keyCode = e.keyCode;
+    var keyName = keyCodeName(keyCode);
+    displayMessage(keyName);
+   // });
 };
