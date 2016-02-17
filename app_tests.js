@@ -4,22 +4,22 @@ describe("keyCodeName", function(){
 
     it("should return right for 39", function(){
         var rightArrow = keyCodeName(39);
-        assert.equal("right", rightArrow);
+        assert.equal("forward", rightArrow);
     });
 
     it("should return left for 37", function(){
         var string = keyCodeName(37);
-        assert.equal("left", string);
+        assert.equal("back", string);
     });
 
     it("should return up for 38", function(){
         var up = keyCodeName(38);
-        assert.equal("up", up);
+        assert.equal("right", up);
     });
 
     it("should return down for 40", function(){
         var down = keyCodeName(40);
-        assert.equal("down", down);
+        assert.equal("left", down);
     });
 
     it("should return blank for any other code", function(){
