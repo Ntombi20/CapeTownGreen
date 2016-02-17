@@ -1,4 +1,3 @@
-
 function keyCodeName(num) {
     if (num === 39) {
     	return "right";
@@ -25,4 +24,7 @@ var body = document.querySelector("body");
 
 body.onkeydown = function(e){
     //e.keyCode - will capture the key codes
+    e.keyCode('click', function() {
+        console.log(displayMessage(e.keyCodeName));
+    });
 };
