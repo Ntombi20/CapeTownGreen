@@ -36,9 +36,10 @@ function keyCodeName(num) {
 var taxiLocationCounter = 1;
 for (var i = 0; i < taxiLocationCounter.length; i++) {
     taxiLocationCounter[i];
+
 };
 
-var createLocactionClass = function(number) {
+var createLocationClass = function(number) {
     if (number === 1) {
         return "slot-one-of-nine";
     }
