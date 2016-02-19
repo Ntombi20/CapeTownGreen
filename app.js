@@ -21,28 +21,31 @@ function keyCodeName(num) {
 
 };
 
- var body = document.querySelector("body");
+var body = document.querySelector("body");
 
- body.onkeydown = function(e){
+body.onkeydown = function(e){
 //     //e.keyCode - will capture the key codes
     var keyCode = e.keyCode;
     var keyName = keyCodeName(keyCode);
     var locationClass = createLocationClass(taxiLocationCounter);
     displayMessage(locationClass);
     
-  moveForward();
-  //   if (keyName === "forward") {
-  //       locationClass++;
-  //   }
-  //   else{
-  //       locationClass--;
-  //   }
-   }  
+ // moveForward();
+    if (keyName === "forward") {
+        moveForward();
+    }
+    else if (keyName === "back") {
+        moveBack();
+    }
+    else{
+        return "";
+    }
+};  
 
 
  var taxiLocationCounter = 1;
 // //var counter = counter++;
-    for (var i = 0; i < taxiLocationCounter.length; i++) {
+    for (var i = 1; i < taxiLocationCounter.length; i++) {
         if (keyCodeName === 'forward') {
             taxiLocationCounter = taxiLocationCounter+1;
         }
@@ -95,3 +98,12 @@ function moveForward(){
     moveTaxi(currentLocation, newLocation);
 };
 
+function moveBack(){
+    var currentLocation = createLocationClass(taxiLocationCounter);
+    taxiLocationCounter = taxiLocationCounter - 1;
+    var newLocation = createLocationClass(taxiLocationCounter);
+    console.log("currentLocation: " + currentLocation);
+    console.log("newLocation: " + newLocation);
+    console.log("taxiLocationCounter: " + taxiLocationCounter);
+    moveTaxi(currentLocation, newLocation);
+};
