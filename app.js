@@ -107,3 +107,40 @@ function moveBack(){
     console.log("taxiLocationCounter: " + taxiLocationCounter);
     moveTaxi(currentLocation, newLocation);
 };
+
+var createTrafficLightClass = function(number) {
+    if (number === 1) {
+        return ".one-of-nine";
+    }
+
+    if (number === 2) {
+        return ".two-of-nine";
+    }
+
+    if (number === 3) {
+        return ".three-of-nine";
+    }
+
+    if (number === 4) {
+        return ".four-of-nine";
+    }
+
+    if (number === 5) {
+       return ".five-of-nine"; 
+    }
+
+    if (number === 6) {
+        return ".six-of-nine";
+    }
+
+    if (number === 7) {
+        return ".seven-of-nine";
+    }
+
+    if (number === 8) {
+        return ".eight-of-nine";
+    }
+    if (number === 9) {
+       return ".nine-of-nine"; 
+    };
+};
