@@ -1,29 +1,16 @@
-function keyCodeName(num) {
-    if (num === 39) {
-    	return "forward";
-    }
-
-    else if (num === 37) {
-    	return "back";
-    }
-
-    else if (num === 38) {
-    	return "right";
-    }
-
-    else if (num === 40) {
-    	return "left";
-    }
-
-    else {
-    	return "";
-    };
-
-};
 
 var body = document.querySelector("body");
+var taxiLocationCounter = 1;
 
 body.onkeydown = function(e){
+var tl = new TrafficLight(taxiLocationCounter);
+    if (e.keyCode === 38){
+        tl.makeRed();
+    }
+    if (e.keyCode === 40){
+        tl.makeGreen();
+    }
+
 //     //e.keyCode - will capture the key codes
     var keyCode = e.keyCode;
     var keyName = keyCodeName(keyCode);
@@ -40,10 +27,36 @@ body.onkeydown = function(e){
     else{
         return "";
     }
+
+ // var trafficLightElement = document.querySelector(className); 
+
+ // var className = createTrafficLightClass(1);
+   
 };  
 
+function keyCodeName(num) {
+    if (num === 39) {
+        return "forward";
+    }
 
- var taxiLocationCounter = 1;
+    else if (num === 37) {
+        return "back";
+    }
+
+    else if (num === 38) {
+        return "up";
+    }
+
+    else if (num === 40) {
+        return "down";
+    }
+
+    else {
+        return "";
+    };
+
+};
+
 // //var counter = counter++;
     for (var i = 1; i < taxiLocationCounter.length; i++) {
         if (keyCodeName === 'forward') {
@@ -144,3 +157,53 @@ var createTrafficLightClass = function(number) {
        return ".nine-of-nine"; 
     };
 };
+
+
+
+function TrafficLight(x) {
+    var className = createTrafficLightClass(x);
+    var trafficLightElement = document.querySelector(className);
+
+     this.makeRed = function(){
+       trafficLightElement.classList.remove("lights-go");
+       trafficLightElement.classList.remove("lights-slowdown");
+       trafficLightElement.classList.add("lights-stop"); 
+    };
+    this.makeOrange = function(){
+        trafficLightElement.classList.remove("lights-stop");
+        trafficLightElement.classList.remove("lights-go");
+        trafficLightElement.classList.add("lights-slowdown");
+    };
+    this.makeGreen = function(){  
+        trafficLightElement.classList.remove("lights-slowdown");
+        trafficLightElement.classList.add("lights-go");
+        trafficLightElement.classList.remove("lights-stop"); 
+    };    
+    this.color = function(){
+        if (trafficLightElement.classList.contains("lights-go")){
+        return 'green';
+        }
+        else if (trafficLightElement.classList.contains("lights-slowdown")){
+        return 'orange';
+        }
+        else if(trafficLightElement.classList.contains("lights-stop")){
+        return 'red';    
+        }
+    };
+}
+   
+    
+
+// if (keyName === "up") {
+//     tl.makeRed;
+// }
+// else if (keyName === "down") {
+//     tl.makeGreen;
+// }
+// var makeGreen = new TrafficLight();
+// var makeRed = new TrafficLight();
+// var makeOrange = new TrafficLight();
+
+
+ 
+

@@ -14,12 +14,12 @@ describe("keyCodeName", function(){
 
     it("should return up for 38", function(){
         var up = keyCodeName(38);
-        assert.equal("right", up);
+        assert.equal("up", up);
     });
 
     it("should return down for 40", function(){
         var down = keyCodeName(40);
-        assert.equal("left", down);
+        assert.equal("down", down);
     });
 
     it("should return blank for any other code", function(){
