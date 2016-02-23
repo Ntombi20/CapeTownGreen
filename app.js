@@ -14,8 +14,7 @@ var tl = new TrafficLight(taxiLocationCounter);
         tl.makeOrange();
     };
 
-
-//     //e.keyCode - will capture the key codes
+ //e.keyCode - will capture the key codes
     var keyCode = e.keyCode;
     var keyName = keyCodeName(keyCode);
     var locationClass = createLocationClass(taxiLocationCounter);
@@ -23,7 +22,9 @@ var tl = new TrafficLight(taxiLocationCounter);
     
  // moveForward();
     if (keyName === "forward") {
+        if (tl.color() === "green" || tl.color() === "orange") {
         moveForward();
+        }
     }
     else if (keyName === "back") {
         moveBack();
@@ -31,15 +32,9 @@ var tl = new TrafficLight(taxiLocationCounter);
     else{
         return "";
     }
-
- // var className = createTrafficLightClass(1);
-if (trafficLight.color() === "red") {
-    return "stop";
 }
-if (trafficLight.color() === "green"){
-    return "go";
-}  
-};  
+
+// taxi should stop when the traffic light is red.  
 
 function keyCodeName(num) {
     if (num === 39) {
@@ -199,7 +194,7 @@ function TrafficLight(x) {
     };
 }
    
-    
+   
 
 // if (keyName === "up") {
 //     tl.makeRed;
