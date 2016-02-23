@@ -10,6 +10,10 @@ var tl = new TrafficLight(taxiLocationCounter);
     if (e.keyCode === 40){
         tl.makeGreen();
     }
+    if (e.keyCode === 16) {
+        tl.makeOrange();
+    };
+
 
 //     //e.keyCode - will capture the key codes
     var keyCode = e.keyCode;
@@ -28,10 +32,13 @@ var tl = new TrafficLight(taxiLocationCounter);
         return "";
     }
 
- // var trafficLightElement = document.querySelector(className); 
-
  // var className = createTrafficLightClass(1);
-   
+if (trafficLight.color() === "red") {
+    return "stop";
+}
+if (trafficLight.color() === "green"){
+    return "go";
+}  
 };  
 
 function keyCodeName(num) {
