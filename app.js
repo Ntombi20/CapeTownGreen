@@ -17,22 +17,24 @@ var tl = new TrafficLight(taxiLocationCounter);
  //e.keyCode - will capture the key codes
     var keyCode = e.keyCode;
     var keyName = keyCodeName(keyCode);
-    var locationClass = createLocationClass(taxiLocationCounter);
-    displayMessage(locationClass);
     
  // moveForward();
     if (keyName === "forward") {
-        if (tl.color() === "green" || tl.color() === "orange") {
-        moveForward();
+        if (taxiLocationCounter<9) {
+            if (tl.color() === "green") {
+                moveForward();
+            }    
         }
+    };
+    if (keyName === "back") {
+        if (taxiLocationCounter>1) {
+            moveBack();
+        };    
     }
-    else if (keyName === "back") {
-        moveBack();
-    }
-    else{
-        return "";
-    }
-}
+    
+    var locationClass = createLocationClass(taxiLocationCounter);
+    displayMessage(locationClass);
+};
 
 // taxi should stop when the traffic light is red.  
 
@@ -59,52 +61,43 @@ function keyCodeName(num) {
 
 };
 
-// //var counter = counter++;
-    for (var i = 1; i < taxiLocationCounter.length; i++) {
-        if (keyCodeName === 'forward') {
-            taxiLocationCounter = taxiLocationCounter+1;
-        }
-        else{
-            taxiLocationCounter = taxiLocationCounter-1;
-        }
-    }; 
-
-var createLocationClass = function(number) {
-    if (number === 1) {
+var createLocationClass = function(taxiLocationCounter) {
+    if (taxiLocationCounter === 1) {
         return "slot-one-of-nine";
     }
 
-    if (number === 2) {
+    if (taxiLocationCounter === 2) {
         return "slot-two-of-nine";
     }
 
-    if (number === 3) {
+    if (taxiLocationCounter === 3) {
         return "slot-three-of-nine";
     }
 
-    if (number === 4) {
+    if (taxiLocationCounter === 4) {
         return "slot-four-of-nine";
     }
 
-    if (number === 5) {
+    if (taxiLocationCounter === 5) {
        return "slot-five-of-nine"; 
     }
 
-    if (number === 6) {
+    if (taxiLocationCounter === 6) {
         return "slot-six-of-nine";
     }
 
-    if (number === 7) {
+    if (taxiLocationCounter === 7) {
         return "slot-seven-of-nine";
     }
 
-    if (number === 8) {
+    if (taxiLocationCounter === 8) {
         return "slot-eight-of-nine";
     }
-    if (number === 9) {
-       return "slot-nine-of-nine"; 
-    };
+    if (taxiLocationCounter === 9) {
+        return "slot-nine-of-nine"; 
+   }
 };
+
 
 function moveForward(){
     var currentLocation = createLocationClass(taxiLocationCounter);
@@ -193,19 +186,4 @@ function TrafficLight(x) {
         }
     };
 }
-   
-   
-
-// if (keyName === "up") {
-//     tl.makeRed;
-// }
-// else if (keyName === "down") {
-//     tl.makeGreen;
-// }
-// var makeGreen = new TrafficLight();
-// var makeRed = new TrafficLight();
-// var makeOrange = new TrafficLight();
-
-
  
-
